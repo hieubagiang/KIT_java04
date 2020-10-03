@@ -1,4 +1,4 @@
-package Buoi5.Bai3;
+package Buoi6KeThuaLuyenTap.Bai3;
 
 import java.util.Scanner;
 
