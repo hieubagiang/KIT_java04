@@ -8,6 +8,11 @@ public class GiangVien extends Nguoi {
     private String khoa;
     private String monDay;
     private int namKinhNghiem;
+
+    public String getKhoa() {
+        return khoa;
+    }
+
     public void nhap()
     {
         super.nhap();
