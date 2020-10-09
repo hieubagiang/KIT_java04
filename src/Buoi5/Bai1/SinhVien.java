@@ -9,6 +9,7 @@ public class SinhVien extends Nguoi {
     private String nganhHoc;
     private String khoa;
 
+
     public void hocVoiGiangVien(GiangVien gv)
     {
         if(this.nganhHoc.equalsIgnoreCase(gv.getKhoa()))

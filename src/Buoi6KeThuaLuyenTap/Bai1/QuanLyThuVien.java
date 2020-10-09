@@ -1,4 +1,4 @@
-package Buoi6KeThuaLuyenTap.Bai3;
+package Buoi6KeThuaLuyenTap.Bai1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
