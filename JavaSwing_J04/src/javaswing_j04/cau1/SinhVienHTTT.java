@@ -6,41 +6,44 @@
 package javaswing_j04.cau1;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  *
- * @author Admin
+ * @author PhamDoanHieu
  */
-public class SinhVienHTTT extends SinhVien  implements Serializable{
-    private float hocPhi;
+public class SinhVienHTTT extends SinhVien  {
+    private double hocPhi;
 
     public SinhVienHTTT() {
     }
 
-    public SinhVienHTTT(float hocPhi) {
+    public SinhVienHTTT(double hocPhi) {
         this.hocPhi = hocPhi;
     }
 
-    public SinhVienHTTT(float hocPhi, String maSV, String hoTen, String ngaySinh, String gioiTinh, double diem) {
+    public SinhVienHTTT(double hocPhi, String maSV, String hoTen, String ngaySinh, String gioiTinh, double diem) {
         super(maSV, hoTen, ngaySinh, gioiTinh, diem);
         this.hocPhi = hocPhi;
     }
 
     
 
-    public float getHocPhi() {
+    public double getHocPhi() {
         return hocPhi;
     }
     
     
-    public void setHocPhi(float hocPhi) {
+    public void setHocPhi(double hocPhi) {
         this.hocPhi = hocPhi;
     }
 
     @Override
     public String toString() {
         return "SinhVienHTTT{" + super.toString()+", hocPhi=" + hocPhi + '}';
+    }
+
+    void xuat() {
+        System.out.println(toString());
     }
 
    

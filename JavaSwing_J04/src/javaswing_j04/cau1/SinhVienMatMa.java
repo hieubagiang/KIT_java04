@@ -15,11 +15,13 @@ public class SinhVienMatMa extends SinhVien implements Serializable{
     private String donVi;
     private int luong;
 
-    public SinhVienMatMa(String donVi, int luong) {
+    public SinhVienMatMa(String donVi, int luong, String maSV, String hoTen, String ngaySinh, String gioiTinh, double diem) {
+        super(maSV, hoTen, ngaySinh, gioiTinh, diem);
         this.donVi = donVi;
         this.luong = luong;
     }
 
+    
     public SinhVienMatMa() {
     }
 
@@ -46,4 +48,8 @@ public class SinhVienMatMa extends SinhVien implements Serializable{
     
     
     
+    public void xuat()
+    {
+        System.out.println(toString());
+    }
 }

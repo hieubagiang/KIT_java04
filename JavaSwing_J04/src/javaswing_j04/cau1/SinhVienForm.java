@@ -19,13 +19,15 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class SinhVienForm extends javax.swing.JFrame implements Serializable {
-
+    
+    ArrayList<SinhVienHTTT> dsSinhVienHTTTs = new ArrayList<>();
+    ArrayList<SinhVienMatMa> dsVienMatMas = new ArrayList<>();
+    
     /**
      * Creates new form SinhVienForm
      */
     public SinhVienForm() {
         initComponents();
-        customInit();
         this.setLocationRelativeTo(null);
     }
 
@@ -49,9 +51,9 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
         jLabel5 = new javax.swing.JLabel();
         txtDiemTB = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        cboGioiTinh = new javax.swing.JComboBox<>();
-        grpSVHTTT = new javax.swing.JRadioButton();
-        grpSinhVienMatMa = new javax.swing.JRadioButton();
+        cbGioiTinh = new javax.swing.JComboBox<>();
+        rdSvHTTT = new javax.swing.JRadioButton();
+        rdSvMM = new javax.swing.JRadioButton();
         txtDonVi = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtLuong = new javax.swing.JTextField();
@@ -109,36 +111,36 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Điểm trung bình:");
 
-        cboGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
-        cboGioiTinh.addActionListener(new java.awt.event.ActionListener() {
+        cbGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
+        cbGioiTinh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboGioiTinhActionPerformed(evt);
+                cbGioiTinhActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(grpSVHTTT);
-        grpSVHTTT.setText("Sinh viên HTTT");
-        grpSVHTTT.addChangeListener(new javax.swing.event.ChangeListener() {
+        buttonGroup1.add(rdSvHTTT);
+        rdSvHTTT.setText("Sinh viên HTTT");
+        rdSvHTTT.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                grpSVHTTTStateChanged(evt);
+                rdSvHTTTStateChanged(evt);
             }
         });
-        grpSVHTTT.addActionListener(new java.awt.event.ActionListener() {
+        rdSvHTTT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                grpSVHTTTActionPerformed(evt);
+                rdSvHTTTActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(grpSinhVienMatMa);
-        grpSinhVienMatMa.setText("Sinh viên mật mã");
-        grpSinhVienMatMa.addChangeListener(new javax.swing.event.ChangeListener() {
+        buttonGroup1.add(rdSvMM);
+        rdSvMM.setText("Sinh viên mật mã");
+        rdSvMM.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                grpSinhVienMatMaStateChanged(evt);
+                rdSvMMStateChanged(evt);
             }
         });
-        grpSinhVienMatMa.addActionListener(new java.awt.event.ActionListener() {
+        rdSvMM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                grpSinhVienMatMaActionPerformed(evt);
+                rdSvMMActionPerformed(evt);
             }
         });
 
@@ -179,7 +181,7 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
             }
         });
 
-        btnLuu.setText("Lưu");
+        btnLuu.setText("Xuất");
         btnLuu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLuuActionPerformed(evt);
@@ -207,9 +209,9 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
                                 .addComponent(txtDonVi, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(grpSVHTTT)
+                                    .addComponent(rdSvHTTT)
                                     .addGap(18, 18, 18)
-                                    .addComponent(grpSinhVienMatMa))
+                                    .addComponent(rdSvMM))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(0, 0, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -235,7 +237,7 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
                             .addComponent(txtHoTen, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                             .addComponent(txtNgaySinh, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                             .addComponent(txtDiemTB, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(cboGioiTinh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cbGioiTinh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(96, 96, 96))))
         );
         layout.setVerticalGroup(
@@ -258,15 +260,15 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDiemTB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(grpSVHTTT)
-                    .addComponent(grpSinhVienMatMa))
+                    .addComponent(rdSvHTTT)
+                    .addComponent(rdSvMM))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,37 +320,76 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
 
     }//GEN-LAST:event_txtHocPhiActionPerformed
 
-    private void grpSVHTTTStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_grpSVHTTTStateChanged
+    private void rdSvHTTTStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rdSvHTTTStateChanged
 
      
-    }//GEN-LAST:event_grpSVHTTTStateChanged
+    }//GEN-LAST:event_rdSvHTTTStateChanged
 
-    private void grpSinhVienMatMaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_grpSinhVienMatMaStateChanged
+    private void rdSvMMStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rdSvMMStateChanged
         // TODO add your handling code here:
    
-    }//GEN-LAST:event_grpSinhVienMatMaStateChanged
+    }//GEN-LAST:event_rdSvMMStateChanged
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
 
+    double diemTb = Double.valueOf(txtDiemTB.getText());
+    String hoTen=txtHoTen.getText();
+    String maSV=txtMaSV.getText();
+    String ngaySinh=txtNgaySinh.getText();
+    String gioiTinh= cbGioiTinh.getSelectedItem().toString();
+    SinhVienMatMa svmm;
+    SinhVienHTTT svhttt;
+    if(rdSvHTTT.isSelected())
+    {
+        double hocPhi=Double.valueOf(txtHocPhi.getText());
+        svhttt = new SinhVienHTTT(hocPhi, maSV, hoTen, ngaySinh, gioiTinh, diemTb);
+        dsSinhVienHTTTs.add(svhttt);
+        svhttt.xuat();
+        System.out.println(dsSinhVienHTTTs);
+    }
+    else if(rdSvMM.isSelected())
+    {
+        String donVi=txtDonVi.getText();
+        int luong=Integer.valueOf(txtLuong.getText());
+
+        svmm = new SinhVienMatMa(donVi, luong, maSV, hoTen, ngaySinh, gioiTinh, diemTb);
+        
+        dsVienMatMas.add(svmm);
+        System.out.println(dsVienMatMas);
+    }
+    
     }//GEN-LAST:event_btnThemActionPerformed
 
-    private void cboGioiTinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGioiTinhActionPerformed
+    
+    private void cbGioiTinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGioiTinhActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cboGioiTinhActionPerformed
+    }//GEN-LAST:event_cbGioiTinhActionPerformed
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-      
+
+         for(SinhVienHTTT tmp : dsSinhVienHTTTs)
+         {
+             tmp.xuat();
+         }
+         for(SinhVienMatMa tmp : dsVienMatMas)
+         {
+             tmp.xuat();
+         }
+         
     }//GEN-LAST:event_btnLuuActionPerformed
 
-    private void grpSVHTTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grpSVHTTTActionPerformed
+    private void rdSvHTTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSvHTTTActionPerformed
+        txtDonVi.setEnabled(false);
+        txtLuong.setEnabled(false);
+        txtHocPhi.setEnabled(true);
+    }//GEN-LAST:event_rdSvHTTTActionPerformed
 
-    }//GEN-LAST:event_grpSVHTTTActionPerformed
-
-    private void grpSinhVienMatMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grpSinhVienMatMaActionPerformed
-                        txtHocPhi.setText("");
-                        
+    private void rdSvMMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSvMMActionPerformed
+txtDonVi.setEnabled(true);
+        txtLuong.setEnabled(true);
+        txtHocPhi.setEnabled(false);
            // TODO add your handling code here:
-    }//GEN-LAST:event_grpSinhVienMatMaActionPerformed
+    }//GEN-LAST:event_rdSvMMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,9 +433,7 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
     private javax.swing.JButton btnLuu;
     private javax.swing.JButton btnThem;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cboGioiTinh;
-    private javax.swing.JRadioButton grpSVHTTT;
-    private javax.swing.JRadioButton grpSinhVienMatMa;
+    private javax.swing.JComboBox<String> cbGioiTinh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -404,6 +443,8 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButton rdSvHTTT;
+    private javax.swing.JRadioButton rdSvMM;
     private javax.swing.JTextField txtDiemTB;
     private javax.swing.JTextField txtDonVi;
     private javax.swing.JTextField txtHoTen;

@@ -48,9 +48,9 @@
                           </Group>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="grpSVHTTT" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rdSvHTTT" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="grpSinhVienMatMa" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rdSvMM" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -84,7 +84,7 @@
                           <Component id="txtHoTen" pref="162" max="32767" attributes="0"/>
                           <Component id="txtNgaySinh" pref="162" max="32767" attributes="0"/>
                           <Component id="txtDiemTB" pref="162" max="32767" attributes="0"/>
-                          <Component id="cboGioiTinh" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbGioiTinh" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                   </Group>
@@ -115,7 +115,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="cboGioiTinh" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbGioiTinh" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -124,8 +124,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="grpSVHTTT" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="grpSinhVienMatMa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rdSvHTTT" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rdSvMM" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -241,7 +241,7 @@
         <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m trung b&#xec;nh:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cboGioiTinh">
+    <Component class="javax.swing.JComboBox" name="cbGioiTinh">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
@@ -251,13 +251,13 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboGioiTinhActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbGioiTinhActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="grpSVHTTT">
+    <Component class="javax.swing.JRadioButton" name="rdSvHTTT">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -265,11 +265,11 @@
         <Property name="text" type="java.lang.String" value="Sinh vi&#xea;n HTTT"/>
       </Properties>
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="grpSVHTTTStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="grpSVHTTTActionPerformed"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="rdSvHTTTStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdSvHTTTActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="grpSinhVienMatMa">
+    <Component class="javax.swing.JRadioButton" name="rdSvMM">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -277,8 +277,8 @@
         <Property name="text" type="java.lang.String" value="Sinh vi&#xea;n m&#x1ead;t m&#xe3;"/>
       </Properties>
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="grpSinhVienMatMaStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="grpSinhVienMatMaActionPerformed"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="rdSvMMStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdSvMMActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDonVi">
@@ -345,7 +345,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnLuu">
       <Properties>
-        <Property name="text" type="java.lang.String" value="L&#x1b0;u"/>
+        <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLuuActionPerformed"/>
