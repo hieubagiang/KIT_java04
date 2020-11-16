@@ -19,9 +19,6 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class SinhVienForm extends javax.swing.JFrame implements Serializable {
-//
-//    ArrayList<SinhVienHTTT> listSVHTTT = new ArrayList<>();
-//    ArrayList<SinhVienMatMa> listSVMM = new ArrayList<>();
 
     /**
      * Creates new form SinhVienForm
@@ -323,130 +320,16 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
 
     private void grpSVHTTTStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_grpSVHTTTStateChanged
 
-        txtDonVi.setEnabled(false);
-        txtLuong.setEnabled(false);
-        txtHocPhi.setEnabled(true);
-
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_grpSVHTTTStateChanged
 
     private void grpSinhVienMatMaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_grpSinhVienMatMaStateChanged
         // TODO add your handling code here:
-        txtDonVi.setEnabled(true);
-        txtLuong.setEnabled(true);
-        txtHocPhi.setEnabled(false);
+   
     }//GEN-LAST:event_grpSinhVienMatMaStateChanged
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        boolean isOK = true;
-        if (grpSVHTTT.isSelected()) {
-            
-            SinhVienHTTT sv = new SinhVienHTTT();
 
-            System.out.println("Khởi tạo kiểu SVHTTT");
-            sv.setMaSV(txtMaSV.getText());
-            sv.setHoTen(txtHoTen.getText());
-            try {
-                sdf.setLenient(false);
-                sv.setNgaySinh(sdf.parse(txtNgaySinh.getText()));
-            } catch (ParseException ex) {
-                isOK = false;
-                JOptionPane.showMessageDialog(this, "Vui lòng định dạng lại ngày sinh (dd/MMM/yyyy)");
-            }
-
-            sv.setGioiTinh(cboGioiTinh.getSelectedItem().toString());
-            try {
-                sv.setDiem(Float.parseFloat(txtDiemTB.getText()));
-
-            } catch (NumberFormatException e) {
-                isOK = false;
-                JOptionPane.showMessageDialog(this, "Điểm phải là số!");
-            }
-            try {
-                sv.setHocPhi(Float.parseFloat(txtHocPhi.getText()));
-
-            } catch (NumberFormatException e) {
-                isOK = false;
-                JOptionPane.showMessageDialog(this, "Học phí phải là số!");
-            }
-            if (isOK) {
-                listSVHTTT.add(sv);
-            }
-
-        }
-        if (grpSinhVienMatMa.isSelected()) {
-            //clear
-            SinhVienMatMa sv = new SinhVienMatMa();
-            sv.setDonVi(txtDonVi.getText());
-            System.out.println("Khởi tạo kiểu SVMM");
-            sv.setMaSV(txtMaSV.getText());
-            sv.setHoTen(txtHoTen.getText());
-            try {
-                                sdf.setLenient(false);
-
-                sv.setNgaySinh(sdf.parse(txtNgaySinh.getText()));
-            } catch (ParseException ex) {
-                isOK = false;
-                JOptionPane.showMessageDialog(this, "Vui lòng định dạng lại ngày sinh");
-
-            }
-
-            sv.setGioiTinh(cboGioiTinh.getSelectedItem().toString());
-
-            try {
-                sv.setDiem(Float.parseFloat(txtDiemTB.getText()));
-
-            } catch (NumberFormatException e) {
-                isOK = false;
-                JOptionPane.showMessageDialog(this, "Điểm phải là số!");
-            }
-            try {
-                sv.setLuong(Integer.parseInt(txtLuong.getText()));
-
-            } catch (NumberFormatException e) {
-                isOK = false;
-                JOptionPane.showMessageDialog(this, "Học phí phải là số!");
-            }
-            if (isOK) {
-                listSVMM.add(sv);
-                
-            }
-        }
-
-        /* SinhVien sv = null;
-        if (grpSVHTTT.isSelected()) {
-            sv = new SinhVienHTTT();
-       
-            sv.setHocPhi(Float.parseFloat(txtHocPhi.getText()));
-            System.out.println(txtHocPhi.getText());
-            System.out.println("Khởi tạo kiểu SVHTTT");
-        }
-        if (grpSinhVienMatMa.isSelected()) {
-            sv = new SinhVienMatMa();
-            sv.setLuong(Integer.parseInt(txtLuong.getText()));
-            sv.setDonVi(txtDonVi.getText());
-            System.out.println("Khởi tạo kiểu SVMM");
-        }
-
-        sv.setMaSV(txtMaSV.getText());
-        sv.setHoTen(txtHoTen.getText());
-        try {
-            sv.setNgaySinh(sdf.parse(txtNgaySinh.getText()));
-        } catch (ParseException ex) {
-            Logger.getLogger(SinhVienForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        sv.setGioiTinh(cboGioiTinh.getSelectedItem().toString());
-        sv.setDiem(Float.parseFloat(txtDiemTB.getText()));
-        /
-        listSV.add(sv);
-        System.out.println(sv.toString());*/
-        // TODO add your handling code here:
-        if(isOK)
-                    JOptionPane.showMessageDialog(this, "Add sinh viên thành công");
-        
-            
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void cboGioiTinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboGioiTinhActionPerformed
@@ -454,18 +337,11 @@ public class SinhVienForm extends javax.swing.JFrame implements Serializable {
     }//GEN-LAST:event_cboGioiTinhActionPerformed
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-        boolean kq = DocGhiSerializable.ghiSerial(listSVMM, "listSVMM.dat");
-        kq = DocGhiSerializable.ghiSerial(listSVHTTT, "listSVHTTT.dat");
-        JOptionPane.showMessageDialog(this, kq);
-
-// TODO add your handling code here:
+      
     }//GEN-LAST:event_btnLuuActionPerformed
 
     private void grpSVHTTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grpSVHTTTActionPerformed
 
-            txtDonVi.setText("");
-            txtLuong.setText("");
-        // TODO add your handling code here:
     }//GEN-LAST:event_grpSVHTTTActionPerformed
 
     private void grpSinhVienMatMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grpSinhVienMatMaActionPerformed
